@@ -1,0 +1,65 @@
+.content-wrapper {
+    position: relative;
+    top: 800px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hor-scroll-wrap {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100px;
+    right: 0;
+    height: 100%;
+    width: 5rem;
+    background-image: linear-gradient( to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    transision: all linear 0.3s;
+    
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5rem;
+    background-image: linear-gradient( to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    transision: all linear 0.3s;
+  }
+  
+  &.scrolled-right {
+    &::after {
+      background-image: linear-gradient( to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    }
+  }
+  &.scrolled-left {
+    &::before {
+      background-image: linear-gradient( to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    }
+  }
+}
+
+.hor-scroll {
+  padding: 1rem 0;
+  overflow-x: scroll;
+}
+.item-grid {
+  white-space: nowrap;
+  li {
+    display: inline-block;
+    width: 15rem;
+    padding: 3rem;
+    background-color: #ccc;
+    
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+  
+}
